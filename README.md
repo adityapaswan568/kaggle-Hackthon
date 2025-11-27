@@ -182,6 +182,10 @@ http://localhost:8081/dev-ui/
 
 **Aditya Paswan** - adityapaswan568
 
+## Team 
+
+**Jayveer Singh** - 
+
 ## 📄 License
 
 This project is part of the Kaggle Hackathon challenge.
