@@ -40,6 +40,7 @@ venv/
 ENV/
 env/
 .venv
+.gitignore
 
 # OS files
 .DS_Store
