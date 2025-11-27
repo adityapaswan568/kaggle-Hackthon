@@ -24,14 +24,14 @@ This repository contains implementations of AI agents that can:
 
 ```
 kaggle-Hackthon/
-├── mainArch.ipynb              # Main notebook with agent setup and demonstrations
-├── sample-agent/               # Sample agent package
+├── mainArch.ipynb              # Main notebook with agent setup 
+├── sampleAgent/                # Sample agent package
 │   ├── __init__.py
 │   └── agent.py               # Root agent definition
-├── inspect_adk.py              # Utility to inspect ADK package files
-├── find_web_command.py         # Utility to locate web command in ADK
-├── read_fastapi.py             # FastAPI integration script
-├── patch_notebook.py           # Notebook patching utility for port/URL updates
+├── codingAssistant/            # Coding assistant agent package
+│   ├── __init__.py
+│   └── agent.py               # Coding agent definition
+
 ├── .env.example                # Environment variables template
 ├── .gitignore                  # Git ignore configuration
 └── README.md                   # This file
@@ -100,34 +100,11 @@ The primary notebook demonstrating:
 - Interactive queries with the agent
 - Web UI setup and usage
 
-### `sample-agent/agent.py`
-Defines a helpful assistant agent:
-```python
-Agent(
-    model='gemini-2.5-flash-lite',
-    name='root_agent',
-    description='A helpful assistant for user questions.',
-    instruction='Answer user questions to the best of your knowledge'
-)
-```
+### `sampleAgent/agent.py`
+Defines a helpful assistant agent.
 
-### Utility Scripts
-- **`inspect_adk.py`**: Lists HTML, JS, and CSS files in the ADK package
-- **`find_web_command.py`**: Locates web command definitions in ADK
-- **`read_fastapi.py`**: Inspects FastAPI implementation details
-- **`patch_notebook.py`**: Automatically patches notebook for correct port configurations
-
-## 🔒 Security
-
-All sensitive information is protected:
-- API keys stored in `.env` (not committed)
-- `.gitignore` configured to exclude:
-  - `.env` files
-  - `__pycache__/` and compiled Python files
-  - Virtual environment directories
-  - IDE configuration files
-
-Use `.env.example` as a template - never commit actual credentials.
+### `codingAssistant/agent.py`
+A coding assistant agent designed to help with programming tasks.
 
 ## 🔧 Configuration
 
@@ -139,31 +116,6 @@ The ADK web UI runs on port 8081 by default. If the port is busy:
 Get-NetTCPConnection -LocalPort 8081 | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
 ```
 
-### Retry Configuration
-Customizable HTTP retry settings:
-```python
-retry_config = types.HttpRetryOptions(
-    attempts=5,                    # Max retry attempts
-    exp_base=7,                   # Exponential backoff base
-    initial_delay=1,              # Initial delay in seconds
-    http_status_codes=[429, 500, 503, 504]  # Status codes to retry
-)
-```
-
-## 📊 Usage Examples
-
-### Query the Agent
-```python
-response = await runner.run_debug("What is the capital of France?")
-response = await runner.run_debug("What is the current time?")
-```
-
-### Access Web UI
-After running the ADK web server, visit:
-```
-http://localhost:8081/dev-ui/
-```
-
 ## 🐛 Troubleshooting
 
 1. **Port 8081 in use**: Kill the process using the port command above
@@ -171,20 +123,13 @@ http://localhost:8081/dev-ui/
 3. **Module not found**: Run `pip install google-adk python-dotenv`
 4. **Web UI shows 500 error**: Ensure the `!adk web` cell is running
 
-## 📝 Notes
-
-- The notebook uses Jupyter's async capabilities for agent interactions
-- Google Search integration requires proper API configuration
-- The agent uses streaming responses for better performance
-- Web UI provides a visual interface for debugging and testing
-
 ## 👤 Author
 
 **Aditya Paswan** - adityapaswan568
 
-## Team 
+## 😎 Team 
 
-**Jayveer Singh** - 
+**Jayveer Singh** - Jayveer-Singh30
 
 ## 📄 License
 
@@ -198,4 +143,4 @@ This project is part of the Kaggle Hackathon challenge.
 
 ---
 
-*Last Updated: November 26, 2025*
+*Last Updated: November 27, 2025*
