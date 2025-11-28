@@ -125,11 +125,11 @@ Get-NetTCPConnection -LocalPort 8081 | ForEach-Object { Stop-Process -Id $_.Owni
 
 ## 👤 Author
 
-**Aditya Paswan** - adityapaswan568
+**Aditya Paswan** - @adityapaswan568
 
 ## 😎 Team 
 
-**Jayveer Singh** - Jayveer-Singh30
+**Jayveer Singh** - @Jayveer-Singh30
 
 ## 📄 License
 
